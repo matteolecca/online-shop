@@ -1,0 +1,14 @@
+.ErrorPage{
+    margin-top: 5vh;
+    max-height: 90vh;
+    height: 90vh;
+}
+.ErrorPage img{
+    width: 80%;
+}
+.ErrorPage p{
+    color: #666666;
+}
+.ErrorPage button{
+    margin: 0 auto;
+}

@@ -1,0 +1,15 @@
+.ErrorMessage{
+    color: red;
+    height: 3vh;
+}
+.ButtonsContainer{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.FormContainer{
+    width: 90%;
+    margin: 0 auto;
+}

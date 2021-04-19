@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button, a{
+  user-select: none;
+}
+/*Badge move 10px left*/
+.MuiBadge-anchorOriginTopRightRectangle{
+  background-color: rgb(236, 97, 97) !important;
+}
+
+.MuiCircularProgress-root.Spinner_Spinner__3lg6J.MuiCircularProgress-colorPrimary.MuiCircularProgress-indeterminate{
+  justify-self: center !important;
+}
+
+.MuiOutlinedInput-root:hover {
+  border-color: #333 !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #333 !important;
+}
+
+.MuiFormLabel-root.Mui-focused {
+  color: #333 !important;
+}

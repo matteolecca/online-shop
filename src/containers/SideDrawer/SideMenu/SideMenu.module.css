@@ -1,0 +1,21 @@
+.SideMenu{
+    align-items: center;
+    width: 80%;
+    height: fit-content;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 25%25%25%25%;
+}
+.FullLineContainer{
+    width: 80%;
+    margin: 10vh auto;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    border-top: 1px solid rgba(200, 200, 200, 0.7);
+    border-bottom: 1px solid rgba(200, 200, 200, 0.7);
+}
+@media( max-width:768px){
+    .SideMenu{
+        grid-template-columns: 50%50%;
+    }
+}

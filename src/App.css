@@ -1,5 +1,15 @@
 .App {
   text-align: center;
+  --main-background: #ffffff;
+  --secondary-background: #ececec;
+  --tertiary-background: #4b4b4b;
+  --main-color: #333333;
+  --secondary-color: #585858;
+  --button-background-color: #333333;
+  --button-color: #ffffff;
+  --shadow-color: #ececec;
+  --error-color: #ec0000;
+  --topbar-height : 80px;
 }
 
 .App-logo {

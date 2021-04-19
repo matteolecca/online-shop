@@ -1,0 +1,36 @@
+.OrderReviewContainer {
+    transition: all 0.5s;
+    overflow: scroll;
+    border-bottom: 1px solid rgba(200, 200, 200, 0.6);
+    height: 0;
+    transition: all 0.5s;
+}
+
+.opened {
+    height: 400px;
+}
+
+.closed {
+    height: 0px;
+}
+
+.ItemsContainer {
+    display: grid;
+    grid-template-columns: 50%50%;
+    margin-bottom: 5vh;
+}
+
+.PriceContainer {
+    padding: 10px;
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media(max-width:768px) {
+    .ItemsContainer {
+        grid-template-columns: 100%;
+    }
+}

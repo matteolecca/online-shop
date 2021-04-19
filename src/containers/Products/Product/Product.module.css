@@ -1,0 +1,72 @@
+.Product {
+    display: grid;
+    grid-template-rows: auto;
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 5px;
+    background-color: #f8f7f7;
+}
+
+.productInfo {
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+    width: 90%;
+    margin: 10px auto;
+}
+
+.productImage {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.Product button {
+    border-radius: 0 0 5px 5px;
+    width: 100%;
+}
+.Product a{
+    height: 100%;
+}
+
+.productImage:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.ButtonsContainer {
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.Product:hover>.ButtonsContainer {
+    opacity: 1;
+    transform: translateY(-100%);
+}
+
+@media(max-width:768px) {
+    .ButtonsContainer {
+        transform: translateY(0);
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        height: fit-content;
+}
+    .Product:hover>.ButtonsContainer {
+        transform: translateY(-65%);
+    }
+    .productImage {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .Product:hover>.ButtonsContainer {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+}
+    
+}

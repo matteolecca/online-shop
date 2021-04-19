@@ -1,0 +1,28 @@
+.SizesContainer{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    background-color: #f2f2f2;
+    margin: 0;
+    height: 100%;
+    align-items: center;
+
+}
+.SizesContainer li{
+    margin: 10px 0;
+    transition: all 0.5s;
+    padding: 5px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+.SizesContainer li:hover{
+    opacity: 0.7;
+    background-color: #333333;
+    cursor: pointer;
+}
+
+.selected{
+    background-color: #333333;
+    color: #ffffff;
+}

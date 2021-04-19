@@ -1,0 +1,98 @@
+.Footer{
+    min-height: 250px;
+    height: fit-content;
+    width: 100%;
+    background-color: rgb(77, 77, 77);
+    background-size: cover;
+    padding: 20px 0;
+    font-weight: 500;
+    color: rgb(165, 165, 165);
+
+
+}
+.Footer a{
+    font-weight: 600;
+    text-decoration: none;
+    color: rgb(165, 165, 165);
+    transition: all 0.5s;
+}
+.Footer a:hover{
+    opacity: 0.5;
+}
+.Footer a:active{
+     color: #1e98ee;
+}
+.FooterContainer{
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 33%33%33%;
+    justify-content: space-between;
+}
+.FooterContainer label{
+    font-weight: 600;
+}
+.FooterContainer h3{
+    text-transform: uppercase;
+    text-align: start;
+}
+.FooterItem{
+    width: 90%;
+    margin: 0 auto;
+    line-height: 2;
+}
+
+.ContactContainer{
+    display: flex;
+    align-items: center;
+    line-height: 2;
+}
+
+
+.ContactContainer svg{
+    width: 0.8em;
+    height: 0.8em;
+}
+
+.ContactContainer :nth-child(1){
+    margin-right: 10px;
+    font-weight: 700;
+}
+
+.Terms{
+    margin-top: 50px;
+    height: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+}
+.TermsItems{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 500;
+}
+
+.MapContainer{
+    display: flex;
+    align-items: center;
+
+}
+
+.MapContainer :nth-child(1){
+    margin-right: 20px;
+}
+.suggestion span{
+    background-color: #fff;
+}
+
+@media (max-width : 768px){
+    .FooterContainer{
+        grid-template-columns: 100%;
+        
+    }
+    .ContactContainer svg,
+    .FooterItem a svg{
+        display: none;
+    }
+}

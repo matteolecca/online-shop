@@ -1,0 +1,30 @@
+.Home{
+    height: inherit;
+}
+.homeImage{
+    height: 100%;
+    width: calc(100vw - 280px);
+    margin-left: 280px;
+    filter: brightness(50%);
+    object-fit: cover;
+}
+.ImageContainer{
+    height: 100vh;
+    background-color: #ececec;
+}
+.ProductsContainer{
+   height: fit-content;
+}
+
+.Products{
+    width: calc(100vw - 280px);
+    margin-left: 280px;
+}
+
+@media(max-width:768px){
+    .Products, .homeImage{
+        width: 100%;
+        margin-left: 0;
+    }   
+}
+

@@ -1,0 +1,25 @@
+.Products{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin-bottom: 10vh;
+}
+.ProductsContainer{
+    padding-top: var(--topbar-height);
+}
+.category{
+    font-weight: 700;
+    font-size: 1.5em;
+    text-align: left;
+    margin-left: 20px;
+    text-transform: capitalize;
+}
+@media screen and (max-width : 992px){
+    .Products{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media screen and ( max-width : 768px){
+    .Products{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

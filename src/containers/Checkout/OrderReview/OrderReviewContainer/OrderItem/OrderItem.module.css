@@ -1,0 +1,30 @@
+.OrderItem{
+    width: 80%;
+    margin: 0 auto;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ border-left: 1px solid rgba(200, 200, 200, 0.6);
+ padding: 10px;
+ transition: all 0.5s;
+}
+.removed{
+    opacity: 0;
+}
+.OrderItem img{
+    width: 15%;
+    border-radius: 5px;
+    flex: 0;
+}
+.OrderItem label{
+    margin-left: 10px;
+}
+.Item{
+    display: flex;
+    align-items: center;
+}
+.ItemInfo{
+    display: grid;
+    text-align: left;
+    text-transform: capitalize;
+}

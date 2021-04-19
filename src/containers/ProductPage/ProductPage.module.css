@@ -1,0 +1,9 @@
+.ProductName{
+    text-transform: capitalize;
+}
+.ProductContainer{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

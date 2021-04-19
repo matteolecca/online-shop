@@ -1,0 +1,4 @@
+.Main{
+    min-height: calc(100vh - (var(--topbar-height)));
+    width: 100%;
+}

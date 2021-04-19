@@ -1,0 +1,36 @@
+.Categories{
+   width: 50%;
+}
+.CategoriesContainer{
+    position: fixed;
+    top: var(--topbar-height);
+    width: 280px;
+    left: 0;
+    max-height: calc(100vh - 200px);
+    overflow: auto;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.CategoryContainer{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.CategoryContainer svg{
+    margin-right: 10px;
+}
+.CategoryContainer a{
+    text-decoration: none;
+    color: var(--main-color);
+    text-transform: capitalize;
+    font-size: 1.5em;
+}
+
+@media(max-width:768px){
+    .Categories{
+        display: none;
+    }   
+}

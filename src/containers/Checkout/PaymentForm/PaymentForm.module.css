@@ -1,0 +1,16 @@
+.CardElement{
+    border: 1px solid rgba(200,200,200,0.6) !important;
+    padding: 20px 10px !important;
+    border-radius: 5px !important;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.PaymentForm{
+    display: grid;
+    grid-template-columns: 49%49%;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}

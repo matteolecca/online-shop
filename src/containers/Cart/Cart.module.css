@@ -1,0 +1,62 @@
+.Cart{
+    position: fixed;
+    top:var(--topbar-height) ;
+    right: 0;
+    width: 55%;
+    height: 100%;
+    background-color: var(--main-background);
+    z-index: 200;
+    max-height: calc(100vh - var(--topbar-height));
+    overflow: scroll;
+}
+
+.CartContainer{
+    width: 90%;
+    margin: 20px auto;
+    margin-bottom: 100px;
+}
+.ItemContainer{
+    display: block;
+}
+.opened {
+    animation: open 0.5s forwards;
+}
+.closed{
+    animation: close 0.5s forwards;
+}
+.topBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.SubtotalContainer{
+    border-bottom: 1px solid rgba(200, 200, 200, 0.6);
+    padding: 20px 0 ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@keyframes open {
+    from{
+        transform: translateX(200%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes close {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(200%);
+    }
+}
+
+@media screen and (max-width:600px){
+    .Cart{
+        width: 100%;
+    }
+}

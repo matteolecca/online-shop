@@ -1,0 +1,15 @@
+.OrderNotFound{
+   text-align: center;
+   height: 100%;
+}
+
+.imgContainer{
+    height: 50vh;
+   display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imgContainer img{
+    width: 70%;
+
+}

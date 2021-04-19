@@ -1,0 +1,30 @@
+.MenuElement{
+    transition: all 0.5s;
+    border: 1px solid #ffffff;
+}
+.MenuElement label{
+    text-transform: capitalize;
+}
+.MenuElement:hover{
+    cursor: pointer;
+    opacity: 0.7;
+    color: #cccccc;
+    border-right: 1px solid rgba(200, 200, 200, 0.7);
+    border-left: 1px solid rgba(200, 200, 200, 0.7);
+}
+.FullLineElement{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    transition: all 0.5s;
+}
+.FullLineElement svg{
+    font-size:2em;
+    margin-right: 10px;
+}
+.FullLineElement:hover{
+    cursor: pointer;
+    color: #cccccc;
+}

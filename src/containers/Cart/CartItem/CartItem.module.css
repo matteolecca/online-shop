@@ -1,0 +1,48 @@
+.CartItem{
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 40%50%10%;
+    justify-content: center;
+}
+.CartItem button{
+    height: 10%;
+}
+.itemInfoContainer{
+    padding-left: 20px;
+    border-left: 1px solid rgba(200, 200, 200, 0.6);
+    align-self: center;
+    display: grid;
+    height: 90%;
+    text-align: left;
+    grid-template-rows: 80%20%;
+}
+
+.itemSize,
+.itemPrice {
+    font-size: 0.8em;
+}
+.itemSize{
+    color: #919191;
+}
+
+.itemName{
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.CartItem img{
+    height: 100%;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.removed{
+    animation: remove 0.5s forwards;
+}
+@keyframes remove {
+    0%{
+        
+    }
+    100%{
+        transform: translateX(-200%);
+    }
+}

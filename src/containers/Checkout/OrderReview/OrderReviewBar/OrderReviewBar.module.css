@@ -1,0 +1,56 @@
+.OrderReviewBar{
+    height: 10vh;
+    background-color: #f3f3f3;
+}
+.OrderReviewBar:hover{
+    cursor: pointer;
+}
+.OrderReviewContainer{
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.ExpandContainer{
+    transition: all 0.5s;
+}
+.OrderReviewContainer div{
+    display: flex;
+    align-items: center;
+}
+.OrderReviewContainer div label{
+    margin-right: 10px;
+}
+.ArrowButton{
+    transition: all 0.5s;
+}
+.ArrowButton:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+.opened{
+    /* transform: rotate(90deg) ; */
+    animation: open 0.5s forwards;
+}
+.closed{
+    /* transform: rotate(0) ; */
+    animation: close 0.5s forwards;
+}
+
+@keyframes open{
+   to{
+    transform: rotate(90deg) ;
+   }
+}
+
+@keyframes close{
+    from{
+    transform: rotate(90deg) ;
+
+    }
+    to{
+     transform: rotate(0deg) ;
+    }
+ }
