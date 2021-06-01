@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { lazy, useMemo, useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Topbar from '../../component/Topbar/Topbar';
-import Cart from '../Cart/Cart';
 import Home from '../Home/Home';
-import Orders from '../Orders/Orders';
 import SideDrawer from '../SideDrawer/SideDrawer';
 import classes from './Main.module.css'
-import Checkout from '../Checkout/Checkout';
 import Popup from '../../component/Popup/Popup';
 import { connect } from 'react-redux';
 import ErrorPage from '../ErrorPage/ErrorPage';
-import OrdersContainer from '../Orders/OrdersContainer/OrdersContainer';
-import mainImg from '../../img/main-img.jpg'
+import { Suspense } from 'react';
+
+const Cart = lazy(()=>import('../Cart/Cart'))
+const Orders = lazy(()=>import('../Orders/Orders'))
+const OrdersContainer = lazy(()=>import('../Orders/OrdersContainer/OrdersContainer'))
+const Checkout = lazy(()=>import('../Checkout/Checkout'))
 
 const Main = props => {
     const { error } = props.result
@@ -27,6 +28,8 @@ const Main = props => {
         openCart(!cartOpened)
         openSideDrawer(false)
     }
+    const memoizedHome = useMemo(()=>Home, [])
+    const fallbackComponent = <div></div>
     return (
         <div className={classes.Main}>
             {error ? <ErrorPage />
@@ -37,14 +40,14 @@ const Main = props => {
                         <React.Fragment>
                             <Topbar openCart={openCartHandler} sideOpened={sideDrawerOpened || cartOpened} onclick={openSideDrawerHandler} />
                             <SideDrawer onclick={openSideDrawerHandler} opened={sideDrawerOpened} />
-                            <Cart onclick={openCartHandler} opened={cartOpened} />
-                            <Home img={mainImg}/>
+                            <Suspense fallback={fallbackComponent}><Cart onclick={openCartHandler} opened={cartOpened} /></Suspense>
+                            {memoizedHome()}
                         </React.Fragment>
                     </Route>
-                    <Route path="/findorder/" exact render={props => <Orders {...props} />} ></Route>
-                    <Route path="/findorder/:orderID" render={props => <Orders {...props} />} ></Route>
-                    <Route path="/orders/:orderID" render={props => <OrdersContainer orderID={props.match.params.orderID} />} ></Route>
-                    <Route path="/checkout" component={Checkout} />
+                    <Route path="/findorder/" exact render={props =><Suspense fallback={fallbackComponent}><Orders {...props} /></Suspense> } ></Route>
+                    <Route path="/findorder/:orderID" render={props =><Suspense fallback={fallbackComponent}><Orders {...props} /></Suspense> } ></Route>
+                    <Route path="/orders/:orderID" render={props =><Suspense fallback={fallbackComponent}> <OrdersContainer orderID={props.match.params.orderID} /></Suspense>} ></Route>
+                    <Route path="/checkout" ><Suspense fallback={fallbackComponent}><Checkout/></Suspense></Route>
                     <Redirect to="/"></Redirect>
                 </Switch>}
             <Popup />

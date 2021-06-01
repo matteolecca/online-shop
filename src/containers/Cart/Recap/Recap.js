@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from './Recap.module.css'
 const Recap = props => {
-    console.log(props)
     return (
         <div className={classes.Recap}>
         <h3>Recap</h3>

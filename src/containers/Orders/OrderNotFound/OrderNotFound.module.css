@@ -1,15 +1,24 @@
-.OrderNotFound{
-   text-align: center;
-   height: 100%;
+.OrderNotFound {
+    text-align: center;
+    height: 100%;
+}
+.OrderNotFound p{
+    color : rgb(126, 126, 126);
+    line-height:1.5rem;
+}
+.OrderNotFound a{
+    background: none;
+    color: #333;
+    font-size: initial;
+    text-decoration: underline;
 }
 
-.imgContainer{
-    height: 50vh;
-   display: flex;
+.imgContainer {
+    display: flex;
     align-items: center;
     justify-content: center;
 }
-.imgContainer img{
-    width: 70%;
 
+.imgContainer img {
+    width: 65%;
 }

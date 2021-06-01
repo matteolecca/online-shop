@@ -4,7 +4,6 @@ import classes from './Products.module.css'
 
 const Products = props => {
     const {  products, categories } = props
-
     return (
         <React.Fragment >
             {

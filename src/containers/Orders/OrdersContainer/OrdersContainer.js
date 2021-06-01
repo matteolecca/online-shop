@@ -10,7 +10,7 @@ import orderHook from '../../../hooks/order-hook'
 const OrdersContainer = props => {
     const { fetchOrder, orderID } = props
     const { loading, orderOverview, loadOrder, error, errorMessage } = orderHook()
-
+    
     useEffect(() => {
         if (orderID) loadOrder(orderID)
     }, [fetchOrder, orderID, loadOrder])
@@ -20,7 +20,7 @@ const OrdersContainer = props => {
         Order = <React.Fragment>
             <div className="ordernr">
                 <h1>Your Order</h1>
-                <h2>{orderOverview.order.orderID}</h2>
+                <h2>{orderOverview.order.ID}</h2>
             </div>
             <h2>Status: confirmed</h2>
             <h2 style={{ marginTop: '50px' }}>Items</h2>

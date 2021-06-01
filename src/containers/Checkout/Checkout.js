@@ -11,6 +11,7 @@ import classes from './Checkout.module.css'
 // import PaymentForm from './PaymentForm/PaymentForm';
 import LoadingPage from '../LoadingPage/LoadingPage';
 import checkoutFormHook from '../../hooks/checkout-form-hook'
+import { withRouter } from 'react-router';
 
 
 const Checkout = props => {
@@ -83,4 +84,4 @@ const Actions = dispatch => {
     }
 }
 
-export default connect(State, Actions)(Checkout);
+export default connect(State, Actions)(withRouter(Checkout));

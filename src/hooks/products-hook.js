@@ -6,7 +6,7 @@ const reducer = (state, action) => {
         case 'LOADING_PRODUCTS':
             return { loading : true, error : false}
         case 'LOADED_PRODUCTS':
-            return { ...state, loading : false, products : action.products, categories : action.categories }
+            return { ...state, loading : false, products : action.products, categories : action.categories, loaded : true }
         case 'ERROR_PRODUCTS':
             return { error : true, loading : false}
         default:
@@ -18,6 +18,7 @@ const ProductsHook = () =>{
     const [ state, dispatch ] = useReducer(reducer, { products : [], categories : []})
 
     const loadProducts = useCallback(async () =>{
+        console.log('LOADING PROSUCES')
         dispatch({type : 'LOADING_PRODUCTS'})
         const result = await axiosFetch('/products', 'GET')
         const categories = await axiosFetch('/categories', 'GET')
@@ -30,6 +31,7 @@ const ProductsHook = () =>{
         products : state.products,
         categories : state.categories,
         loading : state.loading,
+        loaded : state.loaded,
         error : state.error,
         loadProducts : loadProducts
     }

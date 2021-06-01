@@ -16,7 +16,7 @@
 }
 .expandButton{
     padding: 20px;
-    background-image: linear-gradient(#ffffff, #f5f5f5);;
+    background-image: linear-gradient( #fff, #fafafa);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,4 +24,10 @@
 
 .expandButton:hover{
     cursor: pointer;
+    background-image: linear-gradient( #fff, #f5f5f5);
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
 }

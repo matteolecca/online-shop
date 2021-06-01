@@ -20,7 +20,8 @@ const OrderHook = () =>{
     const loadOrder = useCallback(async orderID =>{
         dispatch({type : 'LOADING_ORDER'})
         const result = await axiosFetch(`order/${orderID}`, 'GET')
-        if(result.error) return dispatch({type : 'ERROR', message : 'Failed to load order!'})
+        console.log("result", result)
+        if(result.error) return dispatch({type : 'ERROR_ORDER', message : 'Failed to load order!'})
         dispatch({type : 'LOADED_ORDER', order : result.data})
     },[])
 
