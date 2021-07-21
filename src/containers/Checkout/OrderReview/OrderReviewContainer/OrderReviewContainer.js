@@ -2,14 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import OrderItem from './OrderItem/OrderItem';
 import classes from './OrderReviewContainer.module.css'
+import { getCartLength, getCartState } from '../../../../redux/slices/cart-slice';
+import { useSelector } from 'react-redux';
 const OrderReviewContainer = props => {
     const style = props.opened ? classes.opened : classes.closed
-    const {cart, subtotal, shipping} = props
+
+    const { products, subtotal, shipping } = useSelector(getCartState)
     return (
         <div className={[classes.OrderReviewContainer, style].join(' ')}>
             <h2>Items</h2>
             <div className={classes.ItemsContainer}>
-            {cart.map(p=><OrderItem key={p.ID + p.size} item={p}/>)}
+            {products.map(p=><OrderItem key={p.ID + p.size} item={p}/>)}
             </div>
             <h2>Total</h2>
             <div className={classes.PriceContainer}>
@@ -28,12 +31,6 @@ const OrderReviewContainer = props => {
     );
 };
 
-const State = state =>{
-    return {
-        cart : state.cartReducer.products,
-        subtotal : state.cartReducer.subtotal,
-        shipping : state.cartReducer.shipping
-    }
-}
 
-export default connect(State)(OrderReviewContainer);
+
+export default (OrderReviewContainer);

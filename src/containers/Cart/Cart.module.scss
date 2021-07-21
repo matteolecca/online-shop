@@ -1,0 +1,39 @@
+@import '../../css/global.scss';
+@import '../../css/keyframes.scss';
+.Cart{
+    @include absoluteRight();
+    top:var(--topbar-height) ;
+    width: 55%;
+    height: 100%;
+    background-color: var(--main-background);
+    z-index: 200;
+    max-height: calc(100vh - var(--topbar-height));
+    overflow: scroll;
+}
+
+.CartContainer{
+    width: 90%;
+    margin: 20px auto;
+    margin-bottom: 100px;
+}
+.ItemContainer{
+    display: block;
+}
+.opened {
+    animation: slideIn 0.5s forwards;
+    -webkit-animation: slideIn 0.5s forwards;
+}
+.closed{
+    animation: slideOut 0.5s forwards;
+    -webkit-animation: slideOut 0.5s forwards;
+}
+.topBar{
+   @include flex(center, space-between);
+}
+
+
+@media screen and (max-width:600px){
+    .Cart{
+        width: 100%;
+    }
+}

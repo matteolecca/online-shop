@@ -1,0 +1,54 @@
+@mixin absolute($position, $top, $left){
+    position: $position;
+    top: $top;
+    left: $left;
+}
+
+@mixin absoluteRight(){
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+
+@mixin flex($align, $justify){
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin transition($time){
+    transition: all $time;
+    -webkit-transition: all $time;
+    -moz-transition: all $time;
+    -ms-transition: all $time;
+    -o-transition: all $time;
+}
+
+@mixin noborder(){
+    border: none;
+    outline: none;
+}
+
+@mixin borderRadius($radius){
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+}
+
+@mixin translateX($translation){
+    transform: translateX($translation);
+    -webkit-transform: translateX($translation);
+    -moz-transform: translateX($translation);
+    -ms-transform: translateX($translation);
+    -o-transform: translateX($translation);
+}
+@mixin translate($X,$Y){
+    transform: translate($X,$Y);
+    -webkit-transform: translate($X,$Y);
+    -moz-transform: translate($X,$Y);
+    -ms-transform: translate($X,$Y);
+    -o-transform: translate($X,$Y);
+}

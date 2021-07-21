@@ -5,24 +5,24 @@ import { inputValidator } from '../../../utils/InputValidator'
 import * as actions from '../../../redux/actions'
 import { connect } from 'react-redux';
 const CheckoutForm = props => {
-    const { title, inputs} = props
+    const { group, title, inputs, setValue} = props
 
     const validityHandler = (inputValue, type, regex) => {
-        props.setValue(inputValue, type, inputValidator(inputValue, regex))
+        setValue( group, inputValue, type, inputValidator(inputValue, regex))
     }
 
     return (
         <div  className={classes.CheckoutForm}>
             <h3>{title}</h3>
         <form >
-            {inputs.map(i => {
-                const Icon = i.icon
+            {
+            Object.keys(inputs).map(key => {
+                const Icon = inputs[key].icon
                 return <Input 
+                key={inputs[key].id} 
+                {...inputs[key]}
                 onchange={validityHandler}
-                fullwidth={i.fullwidth} 
-                key={i.id} 
-                type={i.type} 
-                placeholder={i.placeholder}><Icon/></Input>
+                ><Icon/></Input>
             })
             }
         </form>
@@ -30,9 +30,4 @@ const CheckoutForm = props => {
     );
 };
 
-const Action = dispatch =>{
-    return {
-        setValue : (value, valueType, valid) => dispatch({ type : actions.SET_VALUE, value : value, valueType : valueType, valid : valid})
-    }
-}
-export default connect(null, Action) (CheckoutForm);
+export default (CheckoutForm);

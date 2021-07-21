@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CartItem from '../CartItem/CartItem';
-import classes from './ProductsContainer.module.css'
+import classes from './ProductsContainer.module.scss'
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 

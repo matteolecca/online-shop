@@ -1,0 +1,25 @@
+@import '../../../css/global.scss';
+.ProductsContainer{
+    min-height: 45vh;
+    
+}
+.emptyCart{
+    @include flex(center, center);
+    height: 60vh;
+}
+.emptyCart img{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.expandButton{
+    @include flex(center, center);
+    padding: 20px;
+    background-image: linear-gradient( #fff, #fafafa);
+}
+
+.expandButton:hover{
+    @include transition(.5s);
+    cursor: pointer;
+    background-image: linear-gradient( #fff, #f5f5f5);
+}

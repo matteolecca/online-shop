@@ -3,14 +3,18 @@ import { connect } from 'react-redux';
 import classes from './OrderItem.module.css'
 import * as actions from '../../../../../redux/actions'
 import Button from '../../../../../component/Button/Button';
+import { removeFromCart } from '../../../../../redux/slices/cart-slice';
+import { useDispatch } from 'react-redux';
 const OrderItem = props => {
+    const dispatch = useDispatch()
     const { item } = props
     const [removed, remove] = useState(false)
     const style = removed ? classes.removed : null
+
     const removeFromCartHandler = (ID, size, price) =>{
         remove(true)
         setTimeout(() => {
-            props.removeFromCart(ID,size,price)
+            dispatch(removeFromCart({ID : ID, size : size, price : price} ))
         }, 500);
     }
     return (

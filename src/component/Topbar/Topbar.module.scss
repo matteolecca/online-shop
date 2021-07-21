@@ -1,23 +1,17 @@
+@import "../../css/global.scss";
 .Topbar {
+    @include absolute(fixed, 0, 0);
+    @include transition(0.5s);
     height: var(--topbar-height);
     color: var(--main-color);
     width: 100%;
-    position: fixed;
     background-color: transparent;
-    top: 0;
-    left: 0;
-   display: flex;
-   align-items: center;
     z-index: 201;
-    /* color: var(--main-background); */
-    transition: all 0.5s;
     justify-content: space-between;
 }
-.ButtonsContainer{
+.ButtonsContainer {
+    @include flex(center,space-between);
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 95%;
     margin: 0 auto;
 }
@@ -26,33 +20,31 @@
     box-shadow: 1px 0 5px var(--main-color);
     color: var(--secondary-color);
 }
-.cart{
+.cart {
+    @include flex(center,space-between);
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     color: var(--main-background);
     transition: all 0.5s;
 }
 .cart svg:hover,
-.MenuIcon:hover{
+.MenuIcon:hover {
     cursor: pointer;
     opacity: 0.7;
 }
-.cart svg{
+.cart svg {
     margin-left: 20px;
     color: var(--main-background);
 }
 .solid svg,
-.MenuIcon{
+.MenuIcon {
     color: var(--main-color);
 }
 
-@media(max-width:768px){
-    .MenuIcon{
+@media (max-width: 768px) {
+    .MenuIcon {
         color: var(--main-background) !important;
     }
-    .solid .MenuIcon{
+    .solid .MenuIcon {
         color: var(--main-color) !important;
     }
 }

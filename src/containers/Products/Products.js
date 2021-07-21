@@ -1,13 +1,12 @@
 import React from 'react';
 import Product from './Product/Product';
 import classes from './Products.module.css'
-
 const Products = props => {
     const {  products, categories } = props
     return (
         <React.Fragment >
             {
-                categories ? categories.map(c => {
+                categories && categories.map(c => {
                     const productsFiltered = products.filter(p => p.category === c)
                     return (
                         <section className={classes.ProductsContainer} id={c} key={c}>
@@ -18,7 +17,6 @@ const Products = props => {
                         </section>
                     )
                 })
-                : null
             }
         </React.Fragment>
     );

@@ -1,0 +1,13 @@
+@import '../../../css/global.scss';
+.OrdersContainer{
+    width: 90%;
+    margin: 100px auto;
+    min-height: 90vh;
+    text-align: left;
+}
+.OrderItem label{
+    text-transform: capitalize;
+}
+.OrderPrice{
+    @include flex(center,space-between)
+}

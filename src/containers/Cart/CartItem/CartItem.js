@@ -3,7 +3,10 @@ import Button from '../../../component/Button/Button';
 import classes from './CartItem.module.css'
 import * as actions from '../../../redux/actions'
 import { connect } from 'react-redux';
+import { removeFromCart } from '../../../redux/slices/cart-slice';
+import { useDispatch, useSelector } from 'react-redux';
 const CartItem = props => {
+    const dispatch = useDispatch()
     const { item } = props
     const [removed, remove] = useState(false)
     const removedClass = removed ? classes.removed : null
@@ -11,7 +14,7 @@ const CartItem = props => {
     const removeFromCartHandler = (ID, size, price) =>{
         remove(true)
         setTimeout(() => {
-            props.removeFromCart(ID,size,price)
+            dispatch(removeFromCart({ID : ID, size : size, price : price}))
         }, 500);
     }
     return (

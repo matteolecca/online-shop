@@ -2,9 +2,12 @@ import React from 'react';
 import classes from './OrderReviewBar.module.css'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { getCartState } from '../../../../redux/slices/cart-slice';
 const OrderReviewBar = props => {
-    const {opened, open, subtotal, shipping} = props
+    const {opened, open,} = props
     const arrowStyle = opened ? classes.opened : classes.closed 
+    const { subtotal, shipping } = useSelector(getCartState)
     return (
         <div onClick={()=>open(!opened)} className={classes.OrderReviewBar}>
             <div className={classes.OrderReviewContainer}>
@@ -20,10 +23,5 @@ const OrderReviewBar = props => {
         </div>
     );
 };
-const State = state =>{
-    return{
-        subtotal : state.cartReducer.subtotal,
-        shipping : state.cartReducer.shipping
-    }
-}
-export default connect(State) (OrderReviewBar);
+
+export default  (OrderReviewBar);

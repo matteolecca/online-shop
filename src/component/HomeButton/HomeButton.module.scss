@@ -1,0 +1,28 @@
+@import "../../css/global.scss";
+@import "../../css/keyframes.scss";
+.HomeButton {
+    @include absolute(absolute, 20px, 20px);
+    @include flex(center, center);
+    @include transition(0.5s);
+    @include noborder();
+    color: #333;
+    z-index: 300;
+    padding: 5px;
+    background-color: transparent;
+}
+
+.HomeButton:hover {
+    @include borderRadius(5px);
+    @include transition(.5s);
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+.HomeButton:active {
+    background-color: var(--secondary-background);
+    opacity: 0.6;
+    animation: popup 0.5s forwards;
+    -webkit-animation: popup 0.5s forwards;
+}
+

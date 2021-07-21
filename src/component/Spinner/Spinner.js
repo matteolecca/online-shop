@@ -1,6 +1,6 @@
 import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import classes from './Spinner.module.css'
+import classes from './Spinner.module.scss'
 const Spinner = props => {
     const { message } = props 
     const absolute = props.absolutepos ? classes.AbsolutePosition : null

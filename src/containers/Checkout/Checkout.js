@@ -12,76 +12,63 @@ import classes from './Checkout.module.css'
 import LoadingPage from '../LoadingPage/LoadingPage';
 import checkoutFormHook from '../../hooks/checkout-form-hook'
 import { withRouter } from 'react-router';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { getCartState, getCartLength, resetCart } from '../../redux/slices/cart-slice';
 
 const Checkout = props => {
-    const {inputs} = checkoutFormHook()
-    const { cart, order, error, success, orderID, loading, history, resetOrder, valid } = props
-    const [emailValid, setEmailValid] = useState(false)
+    const { inputs, setValue, emailValid, addressValid, submitOrder, inserted, inserting, orderID, error } = checkoutFormHook()
+    const { history } = props
+    const dispatch = useDispatch()
+    const [leaving, setLeaving] = useState(false)
     const nodeRef = React.useRef(null)
+    const cartLength = useSelector(getCartLength)
+    const { products } = useSelector(getCartState)
 
     useEffect(() => {
-        if (success && orderID) {
+        if (orderID) {
+            dispatch(resetCart())
             history.push(`/orders/${orderID}`)
         }
-        return () => resetOrder()
-    }, [history, orderID, success, resetOrder])
+    }, [history, orderID, dispatch])
+
 
     useEffect(() => {
-        if (order.email.valid) {
-            setEmailValid(true)
+        if (cartLength <= 0) {
+            setLeaving(true)
+            setTimeout(() => {
+                history.push('/')
+            }, 500);
         }
-    }, [order.email.valid])
-
-    useEffect(() => {
-        if (cart.length <= 0) history.push('/')
-    }, [cart.length, history])
+    }, [cartLength, history])
 
     const submitFormHandler = () => {
-         props.sendOrder(order, cart)
+        submitOrder(products)
     }
 
     return (
-        <React.Fragment>
-            <h1>Checkout</h1>
+        <div className={classes.Checkout}>
+            {leaving && <LoadingPage />}
             <OrderReview />
             <div className={classes.FormContainer}>
-                <CheckoutForm title="User Info" inputs={inputs.userInfoForm} />
+                <CheckoutForm title="User Info" group='userInfoForm' inputs={inputs.userInfoForm.inputs} setValue={setValue} />
                 <CSSTransition nodeRef={nodeRef} mountOnEnter unmountOnExit in={emailValid} timeout={500} classNames="address-checkout">
                     <div ref={nodeRef} className="formContainer">
-                        <CheckoutForm title="Shipping Info" inputs={inputs.shippingInfoForm} />
+                        <CheckoutForm title="Shipping Info" group='shippingInfoForm' inputs={inputs.shippingInfoForm.inputs} setValue={setValue} />
                         <p className={classes.ErrorMessage}>{error ? 'Complete all the fields' : null}</p>
                     </div>
                 </CSSTransition>
             </div>
             <div className={classes.ButtonsContainer}>
                 <LinkButton path="/" transparent>Leave</LinkButton>
-                {valid ? <Button small={true} loading={loading} onclick={submitFormHandler} fullwidth><span>Order</span></Button> : null}
+                {addressValid && <Button small={true} loading={inserting} onclick={submitFormHandler} fullwidth><span>Order</span></Button>}
             </div>
             {/* <PaymentForm/> */}
-            {loading ? <LoadingPage /> : null}
-        </React.Fragment>
+            {inserting && <LoadingPage />}
+        </div>
     );
 };
 
-const State = state => {
-    return {
-        cart: state.cartReducer.products,
-        order: state.orderReducer.inputs,
-        error: state.orderReducer.error,
-        success: state.orderReducer.success,
-        loading: state.orderReducer.loading,
-        orderID: state.orderReducer.orderID,
-        valid : state.orderReducer.valid
-    }
-}
 
-const Actions = dispatch => {
-    return {
-        // validateForm: (order) => dispatch({ type: actions.CHECK_VALIDITY_FORM, order: order }),
-        sendOrder: (order, cart) => dispatch({ type: actions.SEND_ORDER, order: order, cart: cart }),
-        resetOrder: () => dispatch({ type: actions.RESET_ORDER }),
-    }
-}
 
-export default connect(State, Actions)(withRouter(Checkout));
+
+export default (withRouter(Checkout));

@@ -1,0 +1,47 @@
+@import "../../css/global.scss";
+.Popup {
+    @include absolute(fixed, 5px, 50%);
+    @include borderRadius(10px);
+    width: 30vw;
+    background-color: var(--main-color);
+    padding: 1.5em;
+    color: var(--main-background);
+    z-index: 300;
+}
+
+.closed {
+    animation: close 0.5s forwards;
+}
+.opened {
+    animation: open 0.5s forwards;
+}
+
+@media screen and (max-width: 768px) {
+    .Popup {
+        width: 80%;
+    }
+}
+
+@keyframes open {
+    0% {
+        @include translate(-50%, -200%);
+    }
+    80% {
+        @include translate(-50%, 50%);
+    }
+    100% {
+        @include translate(-50%, 0);
+    }
+}
+
+@keyframes close {
+    0% {
+        @include translate(-50%, 0);
+    }
+    20% {
+        @include translate(-50%, 50%);
+    }
+    100% {
+        @include translate(-50%, -200%);
+    }
+}

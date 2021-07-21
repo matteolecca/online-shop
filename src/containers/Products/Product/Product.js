@@ -5,22 +5,24 @@ import classes from './Product.module.css'
 import * as actions from '../../../redux/actions'
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { addToCart } from '../../../redux/slices/cart-slice';
+import { useDispatch } from 'react-redux';
+import { showPopup } from '../../../redux/slices/popup-slice'
 const sizes = ['xs', 's', 'm', 'l']
 const Product = props => {
+    const dispatch = useDispatch()
     const [sizeSelected, selectSize] = useState(sizes[0])
     const { product } = props
     const URL = `product/${product.ID}`
 
 
     const addToCartHandler = () => {
-        props.addToCart(product, sizeSelected)
-        props.showPopup(product.name)
-        selectSize(sizes[0])
+        dispatch(showPopup({p : product}))
+        dispatch(addToCart({ p : product, s : sizeSelected}))
     }
     return (
         <div className={classes.Product}>
             <NavLink to={URL}><img className={classes.productImage} src={product.image}alt="" /></NavLink>
-           
                 <div className={classes.ButtonsContainer}>
             <SizesContainer sizes={sizes} selectSize={selectSize} sizeSelected={sizeSelected}/>
             <Button transparent onclick={addToCartHandler}>Add to cart</Button>

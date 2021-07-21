@@ -1,6 +1,6 @@
 import React from 'react';
 import Spinner from '../Spinner/Spinner';
-import classes from './Button.module.css'
+import classes from './Button.module.scss'
 const Button = props => {
     const { small } = props
     const style = props.transparent ? classes.transparent : null

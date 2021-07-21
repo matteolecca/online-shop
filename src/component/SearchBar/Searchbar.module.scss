@@ -1,0 +1,17 @@
+@import "../../css/global.scss";
+.Searchbar {
+    @include flex(center, center);
+    width: 100%;
+    padding: 10px 5px;
+}
+.Searchbar label {
+    border-right: none;
+}
+.InputContainer {
+    @include flex(center, space-between);
+    width: 100%;
+}
+.InputContainer div {
+    @include noborder();
+    width: 95%;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Recap.module.css'
+import classes from './Recap.module.scss'
 const Recap = props => {
     return (
         <div className={classes.Recap}>

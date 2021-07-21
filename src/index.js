@@ -3,37 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './css/checkoutForm.css'
 import './css/fonts.css'
+import './css/transitions.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
-import createSagaMiddleware from 'redux-saga'
+import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
-import {productsListener, ordersListener}  from './redux/index'
-
-import productsReducer from './redux/reducers/products-reducer'
-import cartReducer from './redux/reducers/cart-reducer'
 import eventReducer from './redux/reducers/event-reducer'
-import orderReducer from './redux/reducers/order-reducer'
-import resultReducer from './redux/reducers/result-reducer'
+import cartSliceReducer from './redux/slices/cart-slice'
+import popupSliceReducer from './redux/slices/popup-slice'
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
   combineReducers({
-    productsReducer : productsReducer,
-    cartReducer : cartReducer,
-    eventReducer : eventReducer,
-    orderReducer : orderReducer,
-    resultReducer : resultReducer,
-  }),
-  composeEnhancers(
-    applyMiddleware(sagaMiddleware)
-  )
+    popup : popupSliceReducer,
+    cart : cartSliceReducer,
+  })
 )
-sagaMiddleware.run(productsListener)
-sagaMiddleware.run(ordersListener)
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,3 +1,6 @@
+.Checkout{
+    min-height: 100vh;
+}
 .ErrorMessage{
     color: red;
     height: 3vh;

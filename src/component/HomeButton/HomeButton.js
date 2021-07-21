@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './HomeButton.module.css'
+import classes from './HomeButton.module.scss'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { withRouter } from 'react-router-dom';
 const HomeButton = props => {

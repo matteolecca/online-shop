@@ -5,9 +5,10 @@ import Categories from './Categories/Categories';
 import classes from './Home.module.css'
 import productsHook from '../../hooks/products-hook'
 import LoadingPage from '../LoadingPage/LoadingPage';
+import ErrorPage from '../ErrorPage/ErrorPage'
 const Home = props => {
     const { products, loading, loaded, categories, error, loadProducts } = productsHook()
-
+    console.log(error)
     useEffect(() => {
         if (!loaded) loadProducts()
     }, [loadProducts, loaded])
@@ -15,10 +16,10 @@ const Home = props => {
     return (
         <div className={classes.Home}>
             {
-                error ? <div>Error loading</div>
+                loading ?
+                    <LoadingPage message="loading" />
                     :
-                    loading ?
-                        <LoadingPage message="loading" />
+                    error ? <ErrorPage />
                         :
                         <React.Fragment>
                             <div className={classes.ImageContainer}>

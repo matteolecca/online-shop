@@ -23,7 +23,7 @@ const ProductsHook = () =>{
         const result = await axiosFetch('/products', 'GET')
         const categories = await axiosFetch('/categories', 'GET')
         console.log(categories)
-        if(result.error) return dispatch({type : 'ERROR', message : 'Failed to load products!'})
+        if(result.error) return dispatch({type : 'ERROR_PRODUCTS', message : 'Failed to load products!'})
         dispatch({type : 'LOADED_PRODUCTS', products : result.data, categories : categories.data})
     },[])
 
