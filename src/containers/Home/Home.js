@@ -9,11 +9,9 @@ const Home = props => {
     const { products, loading, loaded, categories, error, loadProducts } = productsHook()
 
     useEffect(() => {
-        if(!loaded)loadProducts()
+        if (!loaded) loadProducts()
     }, [loadProducts, loaded])
-    useEffect(()=>{
-        console.log('LOADED', loaded)
-    },[loaded])
+
     return (
         <div className={classes.Home}>
             {

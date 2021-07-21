@@ -1,6 +1,6 @@
 .Products{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
     margin-bottom: 10vh;
 }
 .ProductsContainer{
@@ -13,12 +13,17 @@
     margin-left: 20px;
     text-transform: capitalize;
 }
-@media screen and (max-width : 992px){
+@media screen and (max-width : 1024px){
+    .Products{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+@media screen and (max-width : 768px){
     .Products{
         grid-template-columns: repeat(2,1fr);
     }
 }
-@media screen and ( max-width : 768px){
+@media screen and ( max-width : 480px){
     .Products{
         grid-template-columns: repeat(1, 1fr);
     }

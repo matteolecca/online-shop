@@ -1,6 +1,6 @@
 import axios from 'axios'
 const mainAxios = axios.create({
-    baseURL: 'https://matteolecca-shop-online-server.herokuapp.com/',
+    baseURL: 'http://192.168.1.146:8080',
     withCredentials : true,
     sameSite : 'none'
 })
