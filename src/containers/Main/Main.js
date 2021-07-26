@@ -1,4 +1,4 @@
-import React, { createRef, lazy, useMemo, useState } from 'react';
+import React, { createRef, lazy, useState } from 'react';
 import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import Topbar from '../../component/Topbar/Topbar';
 import Home from '../Home/Home';

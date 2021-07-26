@@ -8,7 +8,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
-import eventReducer from './redux/reducers/event-reducer'
 import cartSliceReducer from './redux/slices/cart-slice'
 import popupSliceReducer from './redux/slices/popup-slice'
 

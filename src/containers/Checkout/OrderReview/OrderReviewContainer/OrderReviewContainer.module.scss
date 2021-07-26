@@ -1,0 +1,80 @@
+@import "../../../../css/global.scss";
+.OrderReviewContainer {
+    @include transition(.5s);
+    height: 100%;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h2 {
+        text-align: start;
+    }
+}
+
+.ItemsContainer {
+    margin-bottom: 25px;
+    max-height: 33vh;
+    overflow: scroll;
+}
+.priceReview {
+    @include flex(flex-end, space-between);
+}
+.priceContainerItem:last-child{
+    margin-bottom: 0;
+    border-bottom: none;
+}
+.priceContainerItem {
+    @include flex(flex-end, center);
+    flex-direction: column;
+    width: 300px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba($color: #ccc, $alpha: 0.5);
+    .price {
+        width: 100%;
+        margin: 10px 0;
+        @include flex(center, space-between);
+        column-gap: 5vw;
+        label {
+            text-align: start;
+        }
+    }
+}
+.OrderDataRow {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content: space-between;
+    padding: 20px 0;
+    margin: 20px 0;
+    label:first-child {
+        grid-column: span 2;
+        text-align: start;
+    }
+    label {
+        font-weight: 700;
+    }
+}
+@media (max-width: 1024px) {
+    .priceContainer{
+        width: 100%;
+    }
+    .priceReview{
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+    .priceContainerItem{
+        width: 100%;
+    }
+    .ItemsContainer {
+        grid-template-columns: 100%;
+        max-height: unset;
+    }
+    .opened {
+        opacity: 1;
+        max-height: 1000px;
+    }
+
+    .closed {
+        opacity: 0;
+        max-height: 0px;
+    }
+}

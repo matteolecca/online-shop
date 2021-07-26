@@ -15,7 +15,7 @@ const Popup = props => {
             }, 2000);
         }
 
-    }, [event, hidePopup])
+    }, [event, dispatch])
     return (
         <CSSTransition
             nodeRef={ref}

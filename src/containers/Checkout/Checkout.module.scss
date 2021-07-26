@@ -1,0 +1,57 @@
+@import '../../css/global.scss';
+.Checkout{
+    min-height: calc(100vh - var(--topbar-height));
+    width: 95%;
+    margin: 0 auto;
+}
+.ErrorMessage{
+    color: red;
+    height: 3vh;
+}
+.ButtonsContainer{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.FormContainer{
+    max-height: 200px;
+    transition: max-height .5s;
+    width: 95%;
+    padding: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: 5px 5px 20px 5px rgba(200, 200, 200, .5);
+    flex: 1 1;
+    -webkit-transition: max-height .5s;
+    -moz-transition: max-height .5s;
+    -ms-transition: max-height .5s;
+    -o-transition: max-height .5s;
+}
+
+.Checkout {
+    display: grid;
+    grid-template-columns: 55% 40%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.maxHeight{
+    max-height: 800px;
+}
+.minHeight{
+    max-height: 200px;
+}
+
+@media screen and ( max-width : 1024px){
+    .Checkout{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        row-gap: 25px;
+    }
+}

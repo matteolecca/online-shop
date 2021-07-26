@@ -1,12 +1,13 @@
 .OrderReviewBar{
     height: 10vh;
-    background-color: #f3f3f3;
+    display: none;
+    z-index: 1;
 }
 .OrderReviewBar:hover{
     cursor: pointer;
 }
 .OrderReviewContainer{
-    width: 90%;
+    width: 100%;
     height: 100%;
     margin: 0 auto;
     display: flex;
@@ -37,6 +38,12 @@
 .closed{
     /* transform: rotate(0) ; */
     animation: close 0.5s forwards;
+}
+
+@media screen and (max-width : 1024px){
+    .OrderReviewBar{
+        display: block;
+    }
 }
 
 @keyframes open{

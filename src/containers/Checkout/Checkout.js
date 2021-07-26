@@ -1,28 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
 import CheckoutForm from './CheckoutForm/CheckoutForm';
 import OrderReview from './OrderReview/OrderReview';
-
-import Button from '../../component/Button/Button';
-import LinkButton from '../../component/NavLinkButton/NavLinkButton';
 import { CSSTransition } from 'react-transition-group'
-import * as actions from '../../redux/actions'
-import classes from './Checkout.module.css'
+import classes from './Checkout.module.scss'
 // import PaymentForm from './PaymentForm/PaymentForm';
 import LoadingPage from '../LoadingPage/LoadingPage';
 import checkoutFormHook from '../../hooks/checkout-form-hook'
 import { withRouter } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
-import { getCartState, getCartLength, resetCart } from '../../redux/slices/cart-slice';
+import { getCartState, resetCart, getCartLength } from '../../redux/slices/cart-slice';
+import LogoContainer from '../../component/LogoContainer/LogoContainer';
 
 const Checkout = props => {
-    const { inputs, setValue, emailValid, addressValid, submitOrder, inserted, inserting, orderID, error } = checkoutFormHook()
+    const { inputs, setValue, emailValid, addressValid, submitOrder, inserting, orderID, error } = checkoutFormHook()
     const { history } = props
     const dispatch = useDispatch()
     const [leaving, setLeaving] = useState(false)
     const nodeRef = React.useRef(null)
-    const cartLength = useSelector(getCartLength)
     const { products } = useSelector(getCartState)
+    const cartLength = useSelector(getCartLength)
+    const formHeight = emailValid ? classes.maxHeight : classes.minHeight
 
     useEffect(() => {
         if (orderID) {
@@ -46,21 +43,25 @@ const Checkout = props => {
     }
 
     return (
-        <div className={classes.Checkout}>
+        <div >
             {leaving && <LoadingPage />}
-            <OrderReview />
-            <div className={classes.FormContainer}>
-                <CheckoutForm title="User Info" group='userInfoForm' inputs={inputs.userInfoForm.inputs} setValue={setValue} />
-                <CSSTransition nodeRef={nodeRef} mountOnEnter unmountOnExit in={emailValid} timeout={500} classNames="address-checkout">
-                    <div ref={nodeRef} className="formContainer">
-                        <CheckoutForm title="Shipping Info" group='shippingInfoForm' inputs={inputs.shippingInfoForm.inputs} setValue={setValue} />
-                        <p className={classes.ErrorMessage}>{error ? 'Complete all the fields' : null}</p>
+           <LogoContainer/>
+            <div className={classes.Checkout}>
+                <OrderReview />
+                < >
+                    <div className={[classes.FormContainer, formHeight].join(' ')}>
+                        <CheckoutForm title="User Info" group='userInfoForm' inputs={inputs.userInfoForm.inputs} setValue={setValue} />
+                        <CSSTransition nodeRef={nodeRef} mountOnEnter unmountOnExit in={emailValid} timeout={500} classNames="address-checkout">
+                            <div ref={nodeRef} className="formContainer">
+                                <CheckoutForm submit={submitFormHandler} valid={addressValid} title="Shipping Info" group='shippingInfoForm' inputs={inputs.shippingInfoForm.inputs} setValue={setValue} />
+                                <p className={classes.ErrorMessage}>{error ? 'Complete all the fields' : null}</p>
+                            </div>
+                        </CSSTransition>
                     </div>
-                </CSSTransition>
-            </div>
-            <div className={classes.ButtonsContainer}>
-                <LinkButton path="/" transparent>Leave</LinkButton>
-                {addressValid && <Button small={true} loading={inserting} onclick={submitFormHandler} fullwidth><span>Order</span></Button>}
+                    <div className={classes.ButtonsContainer}>
+                        {/* {addressValid && <Button small={true} loading={inserting} onclick={submitFormHandler} fullwidth><span>Order</span></Button>} */}
+                    </div>
+                </>
             </div>
             {/* <PaymentForm/> */}
             {inserting && <LoadingPage />}

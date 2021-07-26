@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import classes from './NavLinkButton.module.css'
+import classes from './NavLinkButton.module.scss'
 
 const NavLinkButton = props => {
     const style = props.transparent ? classes.transparent : null

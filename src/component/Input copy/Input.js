@@ -22,6 +22,7 @@ const Input = props => {
       type={props.type}
       id={props.placeholder}
       inputProps={props.pattern ? { pattern: "\\d*" } : {}}
+      required={props.required}
     />
   );
 };

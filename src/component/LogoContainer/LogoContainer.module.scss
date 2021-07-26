@@ -1,0 +1,21 @@
+@import "../../css/global.scss";
+.logoContainer {
+    height: var(--topbar-height);
+    @include flex(center, center);
+    @include noDecoration();
+    color: #333;
+    img {
+        width: 50px;
+    }
+}
+.logo {
+    @include flex(center, center);
+    padding: 5px 10px;
+}
+
+.logo:hover {
+    cursor: pointer;
+    span{
+        color: #ccc;
+    }
+}

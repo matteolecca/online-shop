@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {  createSlice } from "@reduxjs/toolkit";
 import { addProductToCart, initialState, getInitialState, removeProductFromCart } from "../actions/cart-actions";
 const slice = createSlice({
     name: 'cart',

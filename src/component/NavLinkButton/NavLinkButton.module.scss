@@ -1,11 +1,11 @@
+@import '../../css/global.scss';
 .NavLinkButton{
+    @include flex(center, center);
     text-decoration: none;
     color: var(--main-background);
     background-color: var(--main-color);
     padding: 10px;
     border-radius: 5px;
-    display: block;
-    text-align: center;
 }
 .transparent{
     color: var(--main-color);

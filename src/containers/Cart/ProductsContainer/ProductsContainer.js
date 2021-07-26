@@ -3,14 +3,14 @@ import CartItem from '../CartItem/CartItem';
 import classes from './ProductsContainer.module.scss'
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-
+import emptyCart from '../../../img/empty-cart.png'
 const ProductsContainer = props => {
     const { products } = props
     const [showed, show] = useState(false)
     let component =
         <div className={classes.emptyCart}>
             <div className={classes.emptyCartContaier}>
-                <img src="empty-cart.png" alt="" />
+                <img src={emptyCart} alt="" />
                 <div>There are no items yet</div>
             </div>
         </div>

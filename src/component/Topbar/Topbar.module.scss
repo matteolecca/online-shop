@@ -2,12 +2,19 @@
 .Topbar {
     @include absolute(fixed, 0, 0);
     @include transition(0.5s);
+    @include flex(center, center);
     height: var(--topbar-height);
     color: var(--main-color);
     width: 100%;
     background-color: transparent;
     z-index: 201;
-    justify-content: space-between;
+
+    img{
+        width: 50px;
+    }
+}
+.fixed{
+    position :absolute;
 }
 .ButtonsContainer {
     @include flex(center,space-between);

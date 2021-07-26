@@ -1,0 +1,17 @@
+@import "../../../css/global.scss";
+.CheckoutForm {
+    form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 10px;
+        row-gap: 25px;
+        justify-content: space-between;
+        input {
+            text-transform: uppercase;
+        }
+        button {
+            grid-column: span 2;
+           
+        }
+    }
+}

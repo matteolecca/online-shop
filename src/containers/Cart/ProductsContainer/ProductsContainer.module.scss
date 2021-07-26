@@ -1,7 +1,6 @@
 @import '../../../css/global.scss';
 .ProductsContainer{
     min-height: 45vh;
-    
 }
 .emptyCart{
     @include flex(center, center);

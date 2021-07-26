@@ -1,9 +1,11 @@
 @import '../../../css/global.scss';
 .OrdersContainer{
     width: 90%;
-    margin: 100px auto;
+    margin: 0 auto 50px auto;
     min-height: 90vh;
     text-align: left;
+
+    
 }
 .OrderItem label{
     text-transform: capitalize;

@@ -28,6 +28,11 @@
 @mixin noborder(){
     border: none;
     outline: none;
+    
+}
+@mixin noDecoration(){
+    @include noborder();
+    text-decoration: none;
 }
 
 @mixin borderRadius($radius){

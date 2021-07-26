@@ -1,0 +1,47 @@
+@import "../../../../../css/global.scss";
+.OrderItem {
+    @include transition(.5s);
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(6, 1fr);
+    margin-bottom: 25px;
+    text-transform: capitalize;
+    text-align: start;
+    div:first-child {
+        grid-column: span 2;
+    }
+    button{
+        justify-self: flex-end;
+    }
+}
+.imgDesc{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    img{
+        width: 25%;
+    }
+    
+}
+.itemDesc{
+    display: flex;
+    flex-direction: column;
+    label{
+        font-weight: 700;
+    }
+    label:last-child{
+        color: #ccc;
+        font-weight: normal;
+    }
+
+}
+.removed {
+    opacity: 0;
+}
+
+
+
+.OrderItem label {
+    margin-left: 10px;
+}
+

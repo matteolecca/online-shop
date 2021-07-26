@@ -4,7 +4,7 @@ import classes from './CartItem.module.css'
 import * as actions from '../../../redux/actions'
 import { connect } from 'react-redux';
 import { removeFromCart } from '../../../redux/slices/cart-slice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch,  } from 'react-redux';
 const CartItem = props => {
     const dispatch = useDispatch()
     const { item } = props
